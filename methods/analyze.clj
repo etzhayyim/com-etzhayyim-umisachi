@@ -25,7 +25,7 @@
   Run:  bb --classpath 20-actors 20-actors/umisachi/methods/analyze.clj  -> out/nourishment-report.md"
   (:require [clojure.java.io :as io]
             [clojure.edn :as edn]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 (def ^:private this-file *file*)
 (defn- actor-root [] (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile))
@@ -47,7 +47,7 @@
 (defn- coord-key? [k]
   (let [parts (remove nil? [(when (keyword? k) (namespace k))
                             (if (keyword? k) (name k) (str k))])
-        toks  (set (mapcat #(str/split (str/lower-case %) #"[./_-]") parts))]
+        toks  (set (mapcat #(str/split (str/lower %) #"[./_-]") parts))]
     (boolean (some coord-tokens toks))))
 
 (defn assert-charter-clean

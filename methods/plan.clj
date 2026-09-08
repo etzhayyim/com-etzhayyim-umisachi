@@ -21,7 +21,7 @@
   Run:  bb --classpath 20-actors 20-actors/umisachi/methods/plan.clj"
   (:require [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 (def ^:private this-file *file*)
 (defn- actor-root [] (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile))

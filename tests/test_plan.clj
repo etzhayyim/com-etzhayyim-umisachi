@@ -11,7 +11,7 @@
   (:require [umisachi.methods.plan :as p]
             [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is run-tests]]))
 
 (def ^:private this-file *file*)
@@ -66,8 +66,8 @@
   (let [recs (plan)
         edn (p/render-edn recs) md (p/render-md recs)]
     (is (str/includes? edn "Never a catch-target"))
-    (is (str/includes? (str/lower-case md) "never a catch-target list"))
-    (is (str/includes? (str/lower-case md) "no catch / harvest / interdiction"))))
+    (is (str/includes? (str/lower md) "never a catch-target list"))
+    (is (str/includes? (str/lower md) "no catch / harvest / interdiction"))))
 
 (when (= *file* (System/getProperty "babashka.file"))
   (let [{:keys [fail error]} (run-tests 'umisachi.tests.test-plan)]

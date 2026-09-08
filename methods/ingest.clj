@@ -22,14 +22,14 @@
   Run:  bb --classpath 20-actors 20-actors/umisachi/methods/ingest.clj [src.json ...]"
   (:require [cheshire.core :as json]
             [clojure.java.io :as io]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [umisachi.methods.analyze :as a]))
 
 (def ^:private this-file *file*)
 (defn- actor-root [] (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile))
 
 (defn- slug [s]
-  (-> (str/lower-case (str s)) (str/replace #"[^a-z0-9]+" "-") (str/replace #"^-+|-+$" "")))
+  (-> (str/lower (str s)) (str/replace #"[^a-z0-9]+" "-") (str/replace #"^-+|-+$" "")))
 
 (def ^:private coord-fields #{"lat" "lon" "lng" "latitude" "longitude" "gps" "geohash"
                               "coord" "coords" "coordinate" "coordinates" "northing" "easting"})

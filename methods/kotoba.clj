@@ -21,7 +21,7 @@
   (:require [umisachi.methods.datom-emit :as de]
             [clojure.java.io :as io]
             [clojure.edn :as edn]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 (def ^:private this-file *file*)
 (defn log-default []

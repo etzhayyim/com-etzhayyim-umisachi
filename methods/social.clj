@@ -16,7 +16,7 @@
   Run:  bb --classpath 20-actors 20-actors/umisachi/methods/social.clj [seed.edn] [--limit N]"
   (:require [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 (def ^:private this-file *file*)
 (defn- actor-root [] (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile))
@@ -34,7 +34,7 @@
   "True iff `text` trips neither the Charter Rider §2 deny patterns nor the G1 catch-target
   patterns (lower-cased substring)."
   [text]
-  (let [t (str/lower-case text)]
+  (let [t (str/lower text)]
     (and (not-any? #(str/includes? t %) charter-deny)
          (not-any? #(str/includes? t %) g1-deny))))
 

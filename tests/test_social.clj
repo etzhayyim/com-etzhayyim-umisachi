@@ -10,7 +10,7 @@
   (:require [umisachi.methods.social :as s]
             [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is run-tests]]))
 
 (def ^:private this-file *file*)
@@ -36,7 +36,7 @@
 
 (deftest every-body-is-restoration-framed-and-clean
   (doseq [[_ _ text] (posts 9)]
-    (is (str/includes? (str/lower-case text) "restoration") "every body is restoration-framed (G1)")
+    (is (str/includes? (str/lower text) "restoration") "every body is restoration-framed (G1)")
     (is (s/charter-rider-clean text) "every body passes the Charter §2 + G1 deny-scan")
     ;; no coordinate token leaks into any body
     (is (not (re-find #"\b\d+\.\d+[NSEW]\b" text)) "no lat/lon coordinate in the body")))

@@ -11,7 +11,7 @@
   (:require [umisachi.methods.ingest :as i]
             [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is run-tests]]))
 
 (def ^:private fixture-json
@@ -47,7 +47,7 @@
   (with-fixture
     (fn [path]
       (let [n (by-id (:nodes (i/bridge-source path)) :stock.skipjack-wcpo)
-            coordish? (fn [k] (some #(= (str/lower-case (name k)) %) ["lat" "lon" "lng" "latitude" "longitude"]))]
+            coordish? (fn [k] (some #(= (str/lower (name k)) %) ["lat" "lon" "lng" "latitude" "longitude"]))]
         (is (not-any? coordish? (keys n)) "no lat/lon leaks into the bridged node")))))
 
 (deftest g4-destructive-fishery-reclassified-to-pressure

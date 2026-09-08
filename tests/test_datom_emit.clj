@@ -11,7 +11,7 @@
   (:require [umisachi.methods.datom-emit :as de]
             [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is run-tests]]))
 
 (def ^:private this-file *file*)

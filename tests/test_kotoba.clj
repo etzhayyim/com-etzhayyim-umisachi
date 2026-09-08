@@ -11,7 +11,7 @@
   (:require [umisachi.methods.kotoba :as k]
             [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is run-tests]]))
 
 (def ^:private this-file *file*)
@@ -56,7 +56,7 @@
   ;; like :market.domestic-regu*lat*ed would false-match a naive substring scan of the id.
   (let [[nodes edges] (graph)
         gd (k/graph-datoms nodes edges)
-        coord-key? (fn [a] (let [n (str/lower-case (name a))]
+        coord-key? (fn [a] (let [n (str/lower (name a))]
                              (some #(= n %) ["lat" "lon" "lng" "latitude" "longitude"
                                              "coord" "coords" "geohash" "geometry"])))]
     (is (not-any? #(coord-key? (nth % 2)) gd))))

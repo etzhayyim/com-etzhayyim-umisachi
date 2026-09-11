@@ -26,5 +26,5 @@ a kotoba Component-Model actor compiled from the same pure logic.
 - no coordinate-shaped attribute is ever accepted (G1);
 - `:factory-fishing` etc. are never a `:fishery/method` (G4) — only a `:pressure/kind`;
 - 取 is edge-only; node depletion/nourishment is computed on read (G2/N1);
-- emitted EAVT is valid EDN of `[e a v tx op]` datoms (the `tests/test_coverage.clj`
+- emitted EAVT is valid EDN of `[e a v tx op]` datoms (the `tests/test_coverage.cljk`
   round-trip is the gate).

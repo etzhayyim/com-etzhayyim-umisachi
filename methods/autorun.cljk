@@ -14,7 +14,7 @@
   offline graph, persistence is the LOCAL append-only log. G1: a RESTORATION map, never a
   catch-target list.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/autorun.clj --cycles 3 --fresh"
+  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/autorun.cljk --cycles 3 --fresh"
   (:require [umisachi.methods.analyze :as a]
             [umisachi.methods.kotoba :as k]
             [clojure.java.io :as io]))

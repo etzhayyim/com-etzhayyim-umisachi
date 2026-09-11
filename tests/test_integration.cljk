@@ -8,7 +8,7 @@
   consume, plan/social disagreeing with the analyze surface, a persisted graph that won't verify.
   Also confirms the charter gates hold on the MERGED (not just the seed) graph.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_integration.clj"
+  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_integration.cljk"
   (:require [umisachi.methods.ingest :as ing]
             [umisachi.methods.analyze :as a]
             [umisachi.methods.plan :as p]

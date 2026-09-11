@@ -19,7 +19,7 @@
      fetch would tag :authoritative.
    - G7 outward-gated — a --live fetch needs UMISACHI_OPERATOR_GATE and even then is an R0 scaffold.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/ingest.clj [src.json ...]"
+  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/ingest.cljk [src.json ...]"
   (:require [cheshire.core :as json]
             [clojure.java.io :as io]
             [kotoba.lang.text :as str]

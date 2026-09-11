@@ -17,7 +17,7 @@
   :db/add only (append-only, 非終末論). Deterministic: caller supplies tx-id + as-of; derived rows
   are emitted in a canonical sort so the CID is reproducible.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/kotoba.clj"
+  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/kotoba.cljk"
   (:require [umisachi.methods.datom-emit :as de]
             [clojure.java.io :as io]
             [clojure.edn :as edn]

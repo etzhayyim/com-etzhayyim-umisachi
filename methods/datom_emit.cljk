@@ -6,7 +6,7 @@
   op :add is durable; DERIVED readouts (:bond/*) are :derived — the edge-primary integrals
   of analyze, computed on read (N1/G2), emitted only as a transient convenience view.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/datom_emit.clj -> out/umisachi-datoms.kotoba.edn"
+  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/datom_emit.cljk -> out/umisachi-datoms.kotoba.edn"
   (:require [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
             [kotoba.lang.text :as str]))

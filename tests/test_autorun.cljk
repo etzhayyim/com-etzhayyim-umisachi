@@ -6,7 +6,7 @@
   autonomy, deterministic/resume-safe persistence, append-only chaining, and the G1
   restoration-not-target-list stance.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_autorun.clj"
+  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_autorun.cljk"
   (:require [umisachi.methods.autorun :as autorun]
             [umisachi.methods.kotoba :as k]
             [clojure.test :refer [deftest is run-tests]]))

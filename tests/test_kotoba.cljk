@@ -7,7 +7,7 @@
   kabuto/watatsuna/watari/kanjo), GROUND :add vs derived :bond/derived, append/verify/tamper,
   and G1 (no catch-target coordinate leaks into the durable log).
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_kotoba.clj"
+  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_kotoba.cljk"
   (:require [umisachi.methods.kotoba :as k]
             [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]

@@ -2,7 +2,7 @@
 (ns umisachi.tests.test-analyze
   "umisachi 海幸 — analyzer + charter-guard invariants (ADR-2606074200).
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_analyze.clj"
+  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_analyze.cljk"
   (:require [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
             [clojure.edn :as edn]

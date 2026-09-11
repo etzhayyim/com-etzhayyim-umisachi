@@ -77,11 +77,11 @@ existed; mitsuho covers only land + freshwater).
 
 ```bash
 # from repo root (babashka classpath = 20-actors)
-bb --classpath 20-actors 20-actors/umisachi/methods/analyze.clj          # → out/nourishment-report.md
-bb --classpath 20-actors 20-actors/umisachi/methods/datom_emit.clj       # → out/umisachi-datoms.kotoba.edn (EAVT)
-bb --classpath 20-actors 20-actors/umisachi/methods/coverage_report.clj  # → out/coverage-report.md
-bb --classpath 20-actors 20-actors/umisachi/tests/test_analyze.clj \
-&& bb --classpath 20-actors 20-actors/umisachi/tests/test_coverage.clj   # 16 green
+bb --classpath 20-actors 20-actors/umisachi/methods/analyze.cljk          # → out/nourishment-report.md
+bb --classpath 20-actors 20-actors/umisachi/methods/datom_emit.cljk       # → out/umisachi-datoms.kotoba.edn (EAVT)
+bb --classpath 20-actors 20-actors/umisachi/methods/coverage_report.cljk  # → out/coverage-report.md
+bb --classpath 20-actors 20-actors/umisachi/tests/test_analyze.cljk \
+&& bb --classpath 20-actors 20-actors/umisachi/tests/test_coverage.cljk   # 16 green
 ```
 
 ## Why Clojure (not Python)

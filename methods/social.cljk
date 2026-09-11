@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; umisachi 海幸 — atproto-compatible restoration-advisory composer + Charter gate (dry-run).
 (ns umisachi.methods.social
   "social.clj — umisachi marine-bounty social post composer + Charter-Rider gate (ADR-2606074200).
@@ -13,7 +13,7 @@
   the clj surface carries the pure composer + gate + dry-run; the live HTTP write stays out
   (no-server-key / no external I/O here).
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/social.cljk [seed.edn] [--limit N]"
+  Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/social.cljk [seed.edn] [--limit N]"
   (:require [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
             [kotoba.lang.text :as str]))

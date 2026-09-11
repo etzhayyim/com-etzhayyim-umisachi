@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; umisachi 海幸 — depletion → RESTORATION mission planner (composes the analyze core).
 (ns umisachi.methods.plan
   "plan.clj — umisachi restoration mission planner (ADR-2606074200).
@@ -18,7 +18,7 @@
   ACCOUNTABILITY. There is NO catch / harvest / interdiction output by construction — the plan can
   only ADD restoration & equitable access; it is NEVER a catch-target list.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/plan.cljk"
+  Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/plan.cljk"
   (:require [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
             [kotoba.lang.text :as str]))

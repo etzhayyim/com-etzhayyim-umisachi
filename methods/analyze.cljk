@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 (ns umisachi.methods.analyze
   "umisachi 海幸 — edge-primary nourishment / depletion analyzer over the marine-bounty graph.
 
@@ -22,7 +22,7 @@
        cyanide) are UNREPRESENTABLE as a :fishery method — refused at load. They may exist
        ONLY as a :pressure node (the disclosed harm), routed to restoration.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/analyze.cljk  -> out/nourishment-report.md"
+  Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/analyze.cljk  -> out/nourishment-report.md"
   (:require [clojure.java.io :as io]
             [clojure.edn :as edn]
             [kotoba.lang.text :as str]))

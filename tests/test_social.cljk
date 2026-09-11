@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 (ns umisachi.tests.test-social
   "umisachi 海幸 — restoration-advisory composer + Charter/G1 gate invariants (ADR-2606074200).
 
@@ -6,7 +6,7 @@
   catch-target list), the Charter Rider §2 + G1 deny-scan on every body, deterministic compose,
   and dry-run / no-server-key (no live posting on the clj surface).
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_social.cljk"
+  Run:  kbb --classpath 20-actors 20-actors/umisachi/tests/test_social.cljk"
   (:require [umisachi.methods.social :as s]
             [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]

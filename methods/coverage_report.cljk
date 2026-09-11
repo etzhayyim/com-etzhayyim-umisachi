@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 (ns umisachi.methods.coverage-report
   "umisachi 海幸 — marine-bounty COVERAGE report (ADR-2606074200).
 
@@ -8,7 +8,7 @@
   :representative seed); this makes the real covered backbone measurable and names the next
   wave (G5 sourcing honesty).
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/coverage_report.cljk -> out/coverage-report.md"
+  Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/coverage_report.cljk -> out/coverage-report.md"
   (:require [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
             [kotoba.lang.text :as str]))

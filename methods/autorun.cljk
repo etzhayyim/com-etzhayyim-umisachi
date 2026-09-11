@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; umisachi 海幸 — AUTONOMOUS marine-bounty restoration heartbeat on the kotoba Datom log.
 (ns umisachi.methods.autorun
   "autorun.clj — umisachi AUTONOMOUS seafood/marine-bounty heartbeat (ADR-2606074200 / 2605312345).
@@ -14,7 +14,7 @@
   offline graph, persistence is the LOCAL append-only log. G1: a RESTORATION map, never a
   catch-target list.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/autorun.cljk --cycles 3 --fresh"
+  Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/autorun.cljk --cycles 3 --fresh"
   (:require [umisachi.methods.analyze :as a]
             [umisachi.methods.kotoba :as k]
             [clojure.java.io :as io]))

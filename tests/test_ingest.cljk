@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 (ns umisachi.tests.test-ingest
   "umisachi 海幸 — public-dataset → kotoba-EAVT bridge invariants (ADR-2606074200).
 
@@ -7,7 +7,7 @@
   G5 sourcing-honesty, G7 live-fetch refusal, and seed-wins dedup merge. The bridged output is
   charter-clean by construction (every node passes analyze's load-time guard).
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_ingest.cljk"
+  Run:  kbb --classpath 20-actors 20-actors/umisachi/tests/test_ingest.cljk"
   (:require [umisachi.methods.ingest :as i]
             [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]

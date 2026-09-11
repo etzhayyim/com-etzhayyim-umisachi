@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 (ns umisachi.tests.test-autorun
   "umisachi 海幸 — autonomous heartbeat invariants (ADR-2606074200 / 2605312345).
 
@@ -6,7 +6,7 @@
   autonomy, deterministic/resume-safe persistence, append-only chaining, and the G1
   restoration-not-target-list stance.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_autorun.cljk"
+  Run:  kbb --classpath 20-actors 20-actors/umisachi/tests/test_autorun.cljk"
   (:require [umisachi.methods.autorun :as autorun]
             [umisachi.methods.kotoba :as k]
             [clojure.test :refer [deftest is run-tests]]))

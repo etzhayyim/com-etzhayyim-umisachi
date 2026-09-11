@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; umisachi 海幸 — kotoba Datom-log writer (local, content-addressed commit-DAG).
 (ns umisachi.methods.kotoba
   "kotoba.clj — umisachi marine-bounty kotoba Datom-log writer (ADR-2606074200 / 2605312345).
@@ -17,7 +17,7 @@
   :db/add only (append-only, 非終末論). Deterministic: caller supplies tx-id + as-of; derived rows
   are emitted in a canonical sort so the CID is reproducible.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/methods/kotoba.cljk"
+  Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/kotoba.cljk"
   (:require [umisachi.methods.datom-emit :as de]
             [clojure.java.io :as io]
             [clojure.edn :as edn]

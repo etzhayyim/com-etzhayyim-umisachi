@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 (ns umisachi.tests.test-datom-emit
   "umisachi 海幸 — kotoba Datom-log emitter invariants (ADR-2606074200 / 2605312345).
 
@@ -7,7 +7,7 @@
   transient, computed on read, NEVER asserted as durable state), determinism,
   tx-threading, and analyze↔emit derived-value parity.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_datom_emit.cljk"
+  Run:  kbb --classpath 20-actors 20-actors/umisachi/tests/test_datom_emit.cljk"
   (:require [umisachi.methods.datom-emit :as de]
             [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]

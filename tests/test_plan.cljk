@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 (ns umisachi.tests.test-plan
   "umisachi 海幸 — restoration mission planner invariants (ADR-2606074200).
 
@@ -7,7 +7,7 @@
   construction (G1/N1, a restoration map never a catch-target list). Protect targets stocks,
   open targets only ENCLOSED markets, accountability targets the 取-holders.
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_plan.cljk"
+  Run:  kbb --classpath 20-actors 20-actors/umisachi/tests/test_plan.cljk"
   (:require [umisachi.methods.plan :as p]
             [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]

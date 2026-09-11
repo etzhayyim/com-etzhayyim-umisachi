@@ -1,8 +1,8 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 (ns umisachi.tests.test-coverage
   "umisachi 海幸 — coverage report + Datom-emit invariants (ADR-2606074200).
 
-  Run:  bb --classpath 20-actors 20-actors/umisachi/tests/test_coverage.cljk"
+  Run:  kbb --classpath 20-actors 20-actors/umisachi/tests/test_coverage.cljk"
   (:require [umisachi.methods.analyze :as a]
             [umisachi.methods.coverage-report :as cov]
             [umisachi.methods.datom-emit :as de]

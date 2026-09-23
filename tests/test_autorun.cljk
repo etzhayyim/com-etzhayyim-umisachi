@@ -9,7 +9,7 @@
   Run:  kbb --classpath 20-actors 20-actors/umisachi/tests/test_autorun.cljk"
   (:require [umisachi.methods.autorun :as autorun]
             [umisachi.methods.kotoba :as k]
-            [clojure.test :refer [deftest is run-tests]]))
+            [kotoba.test :refer [deftest is run-tests]]))
 
 (defn- tmp [] (let [f (java.io.File/createTempFile "umi-auto-" ".kotoba.edn")] (.delete f) (str f)))
 

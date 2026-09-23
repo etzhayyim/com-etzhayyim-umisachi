@@ -15,7 +15,7 @@
             [umisachi.methods.social :as s]
             [umisachi.methods.kotoba :as k]
             [clojure.java.io :as io]
-            [clojure.edn :as edn]
+            [kotoba.lang.edn :as edn]
             [kotoba.test :refer [deftest is run-tests]]))
 
 (def ^:private this-file *file*)

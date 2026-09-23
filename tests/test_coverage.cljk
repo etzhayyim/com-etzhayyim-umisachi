@@ -9,7 +9,7 @@
             [clojure.java.io :as io]
             [clojure.edn :as edn]
             [kotoba.lang.text :as str]
-            [clojure.test :refer [deftest is run-tests]]))
+            [kotoba.test :refer [deftest is run-tests]]))
 
 (def ^:private this-file *file*)
 (defn- seed-path []

@@ -12,7 +12,7 @@
             [umisachi.methods.analyze :as a]
             [clojure.java.io :as io]
             [kotoba.lang.text :as str]
-            [clojure.test :refer [deftest is run-tests]]))
+            [kotoba.test :refer [deftest is run-tests]]))
 
 (def ^:private this-file *file*)
 (defn- seed-path []

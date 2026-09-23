@@ -7,7 +7,7 @@
             [umisachi.methods.coverage-report :as cov]
             [umisachi.methods.datom-emit :as de]
             [clojure.java.io :as io]
-            [clojure.edn :as edn]
+            [kotoba.lang.edn :as edn]
             [kotoba.lang.text :as str]
             [kotoba.test :refer [deftest is run-tests]]))
 

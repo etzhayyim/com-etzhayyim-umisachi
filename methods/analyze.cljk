@@ -24,7 +24,7 @@
 
   Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/analyze.cljk  -> out/nourishment-report.md"
   (:require [clojure.java.io :as io]
-            [clojure.edn :as edn]
+            [kotoba.lang.edn :as edn]
             [kotoba.lang.text :as str]))
 
 (def ^:private this-file *file*)

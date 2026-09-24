@@ -10,7 +10,7 @@
   Run:  kbb --classpath 20-actors 20-actors/umisachi/tests/test_ingest.cljk"
   (:require [umisachi.methods.ingest :as i]
             [umisachi.methods.analyze :as a]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [kotoba.lang.text :as str]
             [kotoba.test :refer [deftest is run-tests]]))
 

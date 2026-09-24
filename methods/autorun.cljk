@@ -17,10 +17,10 @@
   Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/autorun.cljk --cycles 3 --fresh"
   (:require [umisachi.methods.analyze :as a]
             [umisachi.methods.kotoba :as k]
-            [clojure.java.io :as io]))
+            [kotoba.io :as io]))
 
 (def ^:private this-file *file*)
-(defn- data-dir [] (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile (io/file "data")))
+(defn- data-dir [] (-> this-file io/file io/absolute-file io/parent-file io/parent-file (io/file "data")))
 (defn- seed [] (io/file (data-dir) "seed-umisachi-graph.kotoba.edn"))
 (defn- default-log [] (io/file (data-dir) "umisachi.datoms.kotoba.edn"))
 (def BASE-AS-OF 20260714)
@@ -54,8 +54,8 @@
         cycles (if (>= cyc-idx 0) (Integer/parseInt (nth args (inc cyc-idx))) 3)
         log-idx (.indexOf args "--log")
         log-path (if (>= log-idx 0) (io/file (nth args (inc log-idx))) (default-log))]
-    (when (and (some #{"--fresh"} args) (.exists (io/file log-path)))
-      (.delete (io/file log-path)))
+    (when (and (some #{"--fresh"} args) (io/exists? (io/file log-path)))
+      (io/delete (io/file log-path)))
     (let [res (run-autonomous :cycles cycles :log-path log-path)]
       (println (str "# umisachi — AUTONOMOUS marine-bounty restoration over the kotoba Datom log "
                     "(offline ingest, LOCAL persist; live feed / live-node push stays G7-gated)\n"))

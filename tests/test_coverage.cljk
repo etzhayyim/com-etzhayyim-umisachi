@@ -6,14 +6,14 @@
   (:require [umisachi.methods.analyze :as a]
             [umisachi.methods.coverage-report :as cov]
             [umisachi.methods.datom-emit :as de]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [kotoba.lang.edn :as edn]
             [kotoba.lang.text :as str]
             [kotoba.test :refer [deftest is run-tests]]))
 
 (def ^:private this-file *file*)
 (defn- seed-path []
-  (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile
+  (-> this-file io/file io/absolute-file io/parent-file io/parent-file
       (io/file "data" "seed-umisachi-graph.kotoba.edn")))
 (defn- graph [] (a/load-file (seed-path)))
 

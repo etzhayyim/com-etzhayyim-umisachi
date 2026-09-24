@@ -19,13 +19,13 @@
 
   Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/kotoba.cljk"
   (:require [umisachi.methods.datom-emit :as de]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [kotoba.lang.edn :as edn]
             [kotoba.lang.text :as str]))
 
 (def ^:private this-file *file*)
 (defn log-default []
-  (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile
+  (-> this-file io/file io/absolute-file io/parent-file io/parent-file
       (io/file "data" "umisachi.datoms.kotoba.edn")))
 
 (defn- add-datom [e a v] [:db/add e a v])
@@ -84,8 +84,8 @@
   ([tx] (append-tx tx (log-default)))
   ([tx log-path]
    (let [f (io/file log-path)]
-     (.mkdirs (.getParentFile (.getAbsoluteFile f)))
-     (when-not (.exists f)
+     (io/mkdirs (io/parent-file (io/absolute-file f)))
+     (when-not (io/exists? f)
        (spit f (str ";; umisachi kotoba Datom log — append-only EAVT transactions "
                     "(content-addressed DAG). Restoration map, never a catch-target list (G1). "
                     "DO NOT hand-edit. ADR-2606074200.\n")))
@@ -96,7 +96,7 @@
   ([] (read-log (log-default)))
   ([log-path]
    (let [f (io/file log-path)]
-     (if-not (.exists f) []
+     (if-not (io/exists? f) []
        (->> (str/split-lines (slurp f)) (map str/trim)
             (remove #(or (empty? %) (str/starts-with? % ";"))) (mapv edn/read-string))))))
 

@@ -23,12 +23,12 @@
        ONLY as a :pressure node (the disclosed harm), routed to restoration.
 
   Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/analyze.cljk  -> out/nourishment-report.md"
-  (:require [clojure.java.io :as io]
+  (:require [kotoba.io :as io]
             [kotoba.lang.edn :as edn]
             [kotoba.lang.text :as str]))
 
 (def ^:private this-file *file*)
-(defn- actor-root [] (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile))
+(defn- actor-root [] (-> this-file io/file io/absolute-file io/parent-file io/parent-file))
 
 ;; provisioning-equity weight of the RECEIVING node (commons widest, proprietary narrowest)
 (def access-weight {:commons 1.0 :open 0.9 :regulated 0.7 :enclosed 0.3 :proprietary 0.1})
@@ -163,7 +163,7 @@
         [nodes edges] (load-file seed)
         res (analyze nodes edges)
         out (io/file (actor-root) "out")]
-    (.mkdirs out)
+    (io/mkdirs out)
     (spit (io/file out "nourishment-report.md") (report-md nodes edges res))
     (println (format "umisachi: %d nodes, %d 縁 → out/nourishment-report.md" (count nodes) (count edges)))
     (when-let [top (first (rank (:nourishment res) nodes 1))]

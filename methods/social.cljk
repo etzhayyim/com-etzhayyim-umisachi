@@ -15,11 +15,11 @@
 
   Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/social.cljk [seed.edn] [--limit N]"
   (:require [umisachi.methods.analyze :as a]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [kotoba.lang.text :as str]))
 
 (def ^:private this-file *file*)
-(defn- actor-root [] (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile))
+(defn- actor-root [] (-> this-file io/file io/absolute-file io/parent-file io/parent-file))
 (def actor-did "did:web:etzhayyim.com:actor:umisachi")
 
 ;; Charter Rider §2(a)-(h) deny + a G1 catch-target deny (no coordinates / 'where to fish' /

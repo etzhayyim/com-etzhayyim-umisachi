@@ -10,11 +10,11 @@
 
   Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/coverage_report.cljk -> out/coverage-report.md"
   (:require [umisachi.methods.analyze :as a]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [kotoba.lang.text :as str]))
 
 (def ^:private this-file *file*)
-(defn- actor-root [] (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile))
+(defn- actor-root [] (-> this-file io/file io/absolute-file io/parent-file io/parent-file))
 
 (def stock-status [:sustainable :recovering :fully-fished :overfished :depleted :unknown])
 (def methods*     [:pole-line :set-net :trap :seaweed-culture :shellfish-culture
@@ -79,7 +79,7 @@
                  (str (io/file (actor-root) "data" "seed-umisachi-graph.kotoba.edn")))
         [nodes edges] (a/load-file seed)
         out (io/file (actor-root) "out")]
-    (.mkdirs out)
+    (io/mkdirs out)
     (spit (io/file out "coverage-report.md") (report nodes edges))
     (println (format "umisachi coverage → out/coverage-report.md"))))
 

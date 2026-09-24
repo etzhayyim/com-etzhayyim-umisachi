@@ -8,11 +8,11 @@
 
   Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/datom_emit.cljk -> out/umisachi-datoms.kotoba.edn"
   (:require [umisachi.methods.analyze :as a]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [kotoba.lang.text :as str]))
 
 (def ^:private this-file *file*)
-(defn- actor-root [] (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile))
+(defn- actor-root [] (-> this-file io/file io/absolute-file io/parent-file io/parent-file))
 
 (def node-attrs
   [:organism/kind :organism/label :organism/sourcing
@@ -72,7 +72,7 @@
         [nodes edges] (a/load-file seed)
         res (a/analyze nodes edges)
         out (io/file (actor-root) "out")]
-    (.mkdirs out)
+    (io/mkdirs out)
     (spit (io/file out "umisachi-datoms.kotoba.edn") (emit nodes edges res tx))
     (println (format "umisachi datom log → out/umisachi-datoms.kotoba.edn (%d nodes + %d 縁, tx=%d)"
                      (count nodes) (count edges) tx))))

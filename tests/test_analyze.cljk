@@ -4,13 +4,13 @@
 
   Run:  kbb --classpath 20-actors 20-actors/umisachi/tests/test_analyze.cljk"
   (:require [umisachi.methods.analyze :as a]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [kotoba.lang.edn :as edn]
             [kotoba.test :refer [deftest is run-tests]]))
 
 (def ^:private this-file *file*)
 (defn- seed-path []
-  (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile
+  (-> this-file io/file io/absolute-file io/parent-file io/parent-file
       (io/file "data" "seed-umisachi-graph.kotoba.edn")))
 
 (defn- graph [] (a/load-file (seed-path)))
@@ -95,8 +95,8 @@
 
 ;; ── ontology ↔ code parity (the schema is the SSoT; code must not drift) ──────
 (deftest ontology-matches-code
-  (let [schema-file (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile
-                        .getParentFile .getParentFile
+  (let [schema-file (-> this-file io/file io/absolute-file io/parent-file io/parent-file
+                        io/parent-file io/parent-file
                         (io/file "00-contracts" "schemas" "umisachi-ontology.kotoba.edn"))
         onto (edn/read-string (slurp schema-file))]
     (is (= (:access/weight onto) a/access-weight) "access-weight must match the ontology SSoT")

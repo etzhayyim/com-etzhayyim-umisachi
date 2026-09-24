@@ -18,7 +18,7 @@
   are emitted in a canonical sort so the CID is reproducible.
 
   Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/kotoba.cljk"
-  (:require [umisachi.methods.datom-emit :as de]
+  (:require [kotoba.bytes :as kbytes] [umisachi.methods.datom-emit :as de]
             [kotoba.io :as io]
             [kotoba.lang.edn :as edn]
             [kotoba.lang.text :as str]))
@@ -67,7 +67,7 @@
 ;; ── content-addressed commit-DAG (Family-A canonical form) ─────────────────────
 (defn- sha256-hex [^String s]
   (let [md (java.security.MessageDigest/getInstance "SHA-256")]
-    (apply str (map #(format "%02x" (bit-and % 0xff)) (.digest md (.getBytes s "UTF-8"))))))
+    (apply str (map #(format "%02x" (bit-and % 0xff)) (.digest md (kbytes/utf8-bytes s))))))
 
 (defn- canonical [datoms prev] (str "{:datoms " (pr-str datoms) " :prev " (pr-str prev) "}"))
 

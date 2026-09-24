@@ -14,7 +14,7 @@
   (no-server-key / no external I/O here).
 
   Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/social.cljk [seed.edn] [--limit N]"
-  (:require [umisachi.methods.analyze :as a]
+  (:require [kotoba.bytes :as kbytes] [umisachi.methods.analyze :as a]
             [kotoba.io :as io]
             [kotoba.lang.text :as str]))
 
@@ -40,7 +40,7 @@
 
 (defn rkey [subject-id]
   (let [md (java.security.MessageDigest/getInstance "SHA-256")
-        hx (apply str (map #(format "%02x" (bit-and % 0xff)) (.digest md (.getBytes (str subject-id) "UTF-8"))))]
+        hx (apply str (map #(format "%02x" (bit-and % 0xff)) (.digest md (kbytes/utf8-bytes (str subject-id)))))]
     (str "umisachi-" (subs hx 0 13))))
 
 (defn- now []

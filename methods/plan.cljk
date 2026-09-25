@@ -20,11 +20,11 @@
 
   Run:  kbb --classpath 20-actors 20-actors/umisachi/methods/plan.cljk"
   (:require [umisachi.methods.analyze :as a]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [kotoba.lang.text :as str]))
 
 (def ^:private this-file *file*)
-(defn- actor-root [] (-> this-file io/file .getAbsoluteFile .getParentFile .getParentFile))
+(defn- actor-root [] (-> this-file io/file io/absolute-file io/parent-file io/parent-file))
 
 ;; restoration sibling routes (the 'umisachi knows → siblings act' link; recommend-only)
 (def restore-routes ["inochi" "ossekai"])
@@ -125,7 +125,7 @@
         res (a/analyze nodes edges)
         recs (build-plan nodes res)
         by (fn [k] (count (filter #(= (:plan/kind %) k) recs)))]
-    (.mkdirs out)
+    (io/mkdirs out)
     (spit (io/file out "restoration-plan.md") (render-md recs))
     (spit (io/file out "restoration-plan.kotoba.edn") (render-edn recs))
     (println (format "umisachi plan: %d recommendations (%d protect-rebuild · %d open-access · %d route-to-accountability)"

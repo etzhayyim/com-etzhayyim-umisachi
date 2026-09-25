@@ -3,7 +3,7 @@
   "umisachi 海幸 — analyzer + charter-guard invariants (ADR-2606074200).
 
   Run:  kbb --classpath 20-actors 20-actors/umisachi/tests/test_analyze.cljk"
-  (:require [umisachi.methods.analyze :as a]
+  (:require [kotoba.lang.error :as kerror] [umisachi.methods.analyze :as a]
             [kotoba.io :as io]
             [kotoba.lang.edn :as edn]
             [kotoba.test :refer [deftest is run-tests]]))
@@ -24,13 +24,13 @@
 
 ;; ── G4 — destructive methods unrepresentable as a fishery ─────────────────────
 (deftest g4-refuses-factory-fishing-as-method
-  (is (thrown? clojure.lang.ExceptionInfo
+  (is (thrown? kerror/ExceptionInfo
                (a/assert-charter-clean
                 {:organism/id :x :organism/kind :fishery :fishery/method :factory-fishing}))))
 
 (deftest g4-refuses-each-destructive-method
   (doseq [m a/forbidden-methods]
-    (is (thrown? clojure.lang.ExceptionInfo
+    (is (thrown? kerror/ExceptionInfo
                  (a/assert-charter-clean
                   {:organism/id :x :organism/kind :fishery :fishery/method m}))
         (str "G4 must refuse " m))))
@@ -45,7 +45,7 @@
 ;; ── G1 — no fishing-ground coordinates ────────────────────────────────────────
 (deftest g1-refuses-coordinate-keys
   (doseq [k [:stock/lat :stock/lon :geo/coords :stock/longitude :site/gps :cell/geohash]]
-    (is (thrown? clojure.lang.ExceptionInfo
+    (is (thrown? kerror/ExceptionInfo
                  (a/assert-charter-clean {:organism/id :x :organism/kind :stock k 1.0}))
         (str "G1 must refuse coordinate key " k))))
 
